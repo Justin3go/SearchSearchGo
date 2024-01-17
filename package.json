@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "nuxt": "^3.9.1",
+    "nuxt-elasticsearch": "^1.0.2",
     "vue": "^3.4.10",
     "vue-router": "^4.2.5"
   }
