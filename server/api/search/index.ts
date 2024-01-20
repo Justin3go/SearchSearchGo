@@ -36,7 +36,7 @@ export default defineEventHandler(async (event) => {
       title: item._source.title,
       pan_url: item._source.pan_url,
       extract_code: item._source.extract_code,
-      highlight: item.highlight,
+      highlight: item.highlight?.title?.[0] || '',
     })),
   };
 

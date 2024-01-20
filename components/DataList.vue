@@ -2,13 +2,14 @@
 	<div class="list-container">
 		<template v-for="(item, i) in props.items" :key="i">
 			<v-card
-				v-bind="item.raw"
 				class="mx-1 my-1 py-2 card"
-				href="https://justin3go.com"
+				:href="panUrls[i]"
 				target="_blank"
 				append-icon="mdi-open-in-new"
-
 			>
+				<template v-slot:title> 
+					<span v-html="item.raw.highlight"></span> 
+				</template>
 				<v-card-actions>
 					<v-btn class="ml-2" prepend-icon="mdi-code-block-brackets"
 						>提取码</v-btn
@@ -28,11 +29,12 @@
 
 <script lang="ts" setup>
 interface IResultItem {
-	title: string;
-	pan_url: string;
-	extract_code: string;
-	highlight: string;
-  raw: any; // FIXME: any
+	raw: {
+		title: string;
+		pan_url: string;
+		extract_code: string;
+		highlight: string;
+	};
 }
 
 interface IProps {
@@ -46,20 +48,23 @@ const props = withDefaults(defineProps<IProps>(), {
 	total: 0,
 });
 
+const panUrls = computed(() => {
+	return props.items.map((item) => "//" + item.raw.pan_url);
+});
+
 interface IEmits {
 	(e: "pageChange", page: number): void;
 }
 
 const emit = defineEmits<IEmits>();
-const page = ref(1)
+const page = ref(1);
 watch(page, (newPage) => {
-	emit('pageChange', newPage)
-})
+	emit("pageChange", newPage);
+});
 
 const paginationLength = computed(() => {
 	return Math.ceil(props.total / 10);
 });
-
 </script>
 
 <style lang="scss" scoped>
@@ -70,5 +75,11 @@ const paginationLength = computed(() => {
 
 .list-container::-webkit-scrollbar {
 	display: none;
+}
+</style>
+<style>
+.highlight {
+	background-color: #ECEFF1;
+	font-weight: bold;
 }
 </style>
