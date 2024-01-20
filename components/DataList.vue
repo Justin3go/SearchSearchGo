@@ -7,14 +7,43 @@
 				target="_blank"
 				append-icon="mdi-open-in-new"
 			>
-				<template v-slot:title> 
-					<span v-html="item.raw.highlight"></span> 
+				<template v-slot:title>
+					<span v-html="item.raw.highlight"></span>
 				</template>
 				<v-card-actions>
-					<v-btn class="ml-2" prepend-icon="mdi-code-block-brackets"
-						>提取码</v-btn
-					>
-					<v-btn prepend-icon="mdi-link-box-variant-outline">复制链接</v-btn>
+					<v-snackbar :timeout="2000">
+						<template #activator="{ props }">
+							<v-btn
+								v-bind="props"
+								class="ml-2"
+								prepend-icon="mdi-code-block-brackets"
+								@click.prevent
+								@click.stop="copy(item.raw.extract_code)"
+								>提取码</v-btn
+							>
+						</template>
+						<template #actions>
+							<v-icon
+								:icon="item.raw.extract_code ? 'mdi-check' : 'mdi-bell-outline'"
+							></v-icon>
+						</template>
+						{{ item.raw.extract_code ? "复制成功" : "无需提取码" }}
+					</v-snackbar>
+					<v-snackbar :timeout="2000">
+						<template #activator="{ props }">
+							<v-btn
+								v-bind="props"
+								prepend-icon="mdi-link-box-variant-outline"
+								@click.prevent
+								@click.stop="copy(item.raw.pan_url)"
+								>复制链接</v-btn
+							>
+						</template>
+						<template #actions>
+							<v-icon icon="mdi-check"></v-icon>
+						</template>
+						复制成功
+					</v-snackbar>
 				</v-card-actions>
 			</v-card>
 		</template>
@@ -24,10 +53,13 @@
 			:length="paginationLength"
 			:total-visible="4"
 		></v-pagination>
+		<v-snackbar ref="snackbarRef"></v-snackbar>
 	</div>
 </template>
 
 <script lang="ts" setup>
+import { copyText } from "../utils/copyText";
+
 interface IResultItem {
 	raw: {
 		title: string;
@@ -65,6 +97,16 @@ watch(page, (newPage) => {
 const paginationLength = computed(() => {
 	return Math.ceil(props.total / 10);
 });
+
+const snackbarRef = ref();
+function copy(text: string) {
+	copyText(text);
+	snackbarRef.value.show({
+		message: "复制成功",
+		timeout: 3000, // 设置显示时间
+		color: "success", // 设置颜色
+	});
+}
 </script>
 
 <style lang="scss" scoped>
@@ -79,7 +121,7 @@ const paginationLength = computed(() => {
 </style>
 <style>
 .highlight {
-	background-color: #ECEFF1;
+	background-color: #eceff1;
 	font-weight: bold;
 }
 </style>
