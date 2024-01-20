@@ -3,7 +3,7 @@
 		class="d-flex justify-center bg-grey-lighten-5 overflow-hidden overflow-y-hidden"
 	>
 		<v-sheet
-			class="px-16 pt-4"
+			class="px-md-16 px-2 pt-4"
 			:elevation="2"
 			height="100vh"
 			:width="1024"
