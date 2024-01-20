@@ -24,25 +24,19 @@
 					<SearchBar @search="search" @clear="clear"></SearchBar>
 				</template>
 				<template #default="{ items }">
-					<template v-if="pending">
-						<v-skeleton-loader
-							v-for="_ in 5"
-							class="ma-1"
-							type="list-item-three-line"
-							:height="128"
-							:elevation="1"
-						></v-skeleton-loader>
-					</template>
 					<DataList
-						v-else
 						:items="items"
 						:total="curTotal"
 						@page-change="pageChange"
 					></DataList>
 				</template>
 				<template #no-data>
-					<BaseEmpty v-if="isInput"></BaseEmpty>
-					<PleaseInput v-else></PleaseInput>
+					<v-slide-x-reverse-transition>
+						<BaseEmpty v-if="isInput"></BaseEmpty>
+					</v-slide-x-reverse-transition>
+					<v-slide-x-transition>
+						<PleaseInput v-if="!isInput"></PleaseInput>
+					</v-slide-x-transition>
 				</template>
 			</v-data-iterator>
 		</v-sheet>
@@ -71,11 +65,10 @@ const curPage = ref(pageNo as number);
 const curInput = ref(query as string);
 const isInput = computed(() => !!curInput.value);
 
-let { data, pending }: { data: Ref<IResult>; pending: Ref<boolean> } =
-	await useFetch("/api/search", {
-		query: { query: curInput, pageNo: curPage, pageSize: 10 },
-		immediate: !!query,
-	});
+let { data }: { data: Ref<IResult> } = await useFetch("/api/search", {
+	query: { query: curInput, pageNo: curPage, pageSize: 10 },
+	immediate: !!query,
+});
 data.value = data.value || defaultData;
 
 const curItems = computed(() => data.value.data);
