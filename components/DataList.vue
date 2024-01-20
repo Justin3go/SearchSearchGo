@@ -1,5 +1,5 @@
 <template>
-	<div class="list-container">
+	<div ref="scrollContainer" class="list-container">
 		<template v-for="(item, i) in props.items" :key="i">
 			<v-card
 				class="mx-1 my-1 py-2 card"
@@ -74,7 +74,6 @@ interface IProps {
 	total: number;
 }
 // TODO 还可以增加一个历史浏览的功能，并在列表展示时增加tag，在菜单里面增加历史浏览的选项
-// TODO 监听滚动区域，在背景可以展示图像移动，反正要考虑下滚动区域
 const props = withDefaults(defineProps<IProps>(), {
 	items: () => [],
 	total: 0,
@@ -92,6 +91,7 @@ const emit = defineEmits<IEmits>();
 const page = ref(1);
 watch(page, (newPage) => {
 	emit("pageChange", newPage);
+	scrollToTop();
 });
 
 const paginationLength = computed(() => {
@@ -106,6 +106,14 @@ function copy(text: string) {
 		timeout: 3000, // 设置显示时间
 		color: "success", // 设置颜色
 	});
+}
+
+const scrollContainer = ref();
+function scrollToTop() {
+	scrollContainer.value.scrollTo({
+		top: 0,
+		// behavior: "smooth",
+	})
 }
 </script>
 

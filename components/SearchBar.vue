@@ -12,7 +12,6 @@
 		:items="suggestItems"
 		@keyup.enter="clickSearch" 
 		@click:clear="clickClear"
-		@click:append="clickSearch"
 		@update:modelValue="inputChange"
 	>
 		<template #append-inner>

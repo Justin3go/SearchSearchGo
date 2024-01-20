@@ -31,12 +31,14 @@
 					></DataList>
 				</template>
 				<template #no-data>
-					<v-slide-x-reverse-transition>
-						<BaseEmpty v-if="isInput"></BaseEmpty>
-					</v-slide-x-reverse-transition>
-					<v-slide-x-transition>
-						<PleaseInput v-if="!isInput"></PleaseInput>
-					</v-slide-x-transition>
+					<template v-if="!pending">
+						<v-slide-x-reverse-transition>
+							<BaseEmpty v-if="isInput"></BaseEmpty>
+						</v-slide-x-reverse-transition>
+						<v-slide-x-transition>
+							<PleaseInput v-if="!isInput"></PleaseInput>
+						</v-slide-x-transition>
+					</template>
 				</template>
 			</v-data-iterator>
 		</v-sheet>
@@ -65,7 +67,7 @@ const curPage = ref(pageNo as number);
 const curInput = ref(query as string);
 const isInput = computed(() => !!curInput.value);
 
-let { data }: { data: Ref<IResult> } = await useFetch("/api/search", {
+let { data, pending }: { data: Ref<IResult>, pending: Ref<boolean> } = await useFetch("/api/search", {
 	query: { query: curInput, pageNo: curPage, pageSize: 10 },
 	immediate: !!query,
 });
