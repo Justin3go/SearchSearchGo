@@ -24,7 +24,17 @@
 					<SearchBar @search="search" @clear="clear"></SearchBar>
 				</template>
 				<template #default="{ items }">
+					<template v-if="pending">
+						<v-skeleton-loader
+							v-for="_ in 5"
+							class="ma-1"
+							type="list-item-three-line"
+							:height="128"
+							:elevation="1"
+						></v-skeleton-loader>
+					</template>
 					<DataList
+						v-else
 						:items="items"
 						:total="curTotal"
 						@page-change="pageChange"
@@ -61,13 +71,11 @@ const curPage = ref(pageNo as number);
 const curInput = ref(query as string);
 const isInput = computed(() => !!curInput.value);
 
-let { data }: { data: Ref<IResult> } = await useFetch(
-	"/api/search",
-	{
+let { data, pending }: { data: Ref<IResult>; pending: Ref<boolean> } =
+	await useFetch("/api/search", {
 		query: { query: curInput, pageNo: curPage, pageSize: 10 },
 		immediate: !!query,
-	}
-);
+	});
 data.value = data.value || defaultData;
 
 const curItems = computed(() => data.value.data);
