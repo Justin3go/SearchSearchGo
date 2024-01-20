@@ -71,11 +71,13 @@ interface IResultItem {
 
 interface IProps {
 	items: IResultItem[];
+	page: number;
 	total: number;
 }
 // TODO 还可以增加一个历史浏览的功能，并在列表展示时增加tag，在菜单里面增加历史浏览的选项
 const props = withDefaults(defineProps<IProps>(), {
 	items: () => [],
+	page: 1,
 	total: 0,
 });
 
@@ -88,7 +90,7 @@ interface IEmits {
 }
 
 const emit = defineEmits<IEmits>();
-const page = ref(1);
+const page = ref(props.page); // 如果父组件传入了这个属性，则用其初始化page
 watch(page, (newPage) => {
 	emit("pageChange", newPage);
 	scrollToTop();

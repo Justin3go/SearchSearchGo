@@ -21,12 +21,13 @@
 						</span>
 						<MainMenu></MainMenu>
 					</div>
-					<SearchBar @search="search" @clear="clear"></SearchBar>
+					<SearchBar :input="curInput" @search="search" @clear="clear"></SearchBar>
 				</template>
 				<template #default="{ items }">
 					<DataList
 						:items="items"
 						:total="curTotal"
+						:page="curPage"
 						@page-change="pageChange"
 					></DataList>
 				</template>
@@ -47,7 +48,8 @@
 
 <script lang="ts" setup>
 const route = useRoute();
-const { query = "", pageNo = 1 } = route.query;
+const { query = "", page = 1 } = route.query;
+const router = useRouter()
 const defaultData = { data: [], total: 0 };
 
 interface IResultItem {
@@ -62,7 +64,7 @@ interface IResult {
 	total: number;
 }
 
-const curPage = ref(pageNo as number);
+const curPage = ref(page as number);
 
 const curInput = ref(query as string);
 const isInput = computed(() => !!curInput.value);
@@ -79,10 +81,12 @@ const curTotal = computed(() => data.value.total);
 function search(input: string) {
 	curPage.value = 1;
 	curInput.value = input;
+	router.replace({ query: { ...route.query, query: input, page: 1 } })
 }
 
 function pageChange(page: number) {
 	curPage.value = page;
+	router.replace({ query: { ...route.query, page: page } })
 }
 
 function clear() {

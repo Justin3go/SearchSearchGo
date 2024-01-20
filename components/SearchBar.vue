@@ -30,6 +30,14 @@
 <script lang="ts" setup>
 import { debounce } from "lodash";
 
+interface IProps {
+	input: string;
+}
+// TODO 还可以增加一个历史浏览的功能，并在列表展示时增加tag，在菜单里面增加历史浏览的选项
+const props = withDefaults(defineProps<IProps>(), {
+	input: "",
+});
+
 interface IEmits {
 	(e: "search", input: string): void;
 	(e: "clear"): void;
@@ -37,7 +45,7 @@ interface IEmits {
 
 const emit = defineEmits<IEmits>();
 
-const input = ref("");
+const input = ref(props.input); // 如果父组件传入了这个属性，则用其初始化input
 const suggestItems: Ref<string[]> = ref([]);
 const isLoadingSuggest = ref(false);
 
@@ -50,9 +58,11 @@ async function inputChange() {
 }
 
 async function loadSuggest() {
+	isLoadingSuggest.value = true;
 	const data: string[] = await $fetch("/api/search/suggest", {
 		query: { input: input.value },
 	});
+	isLoadingSuggest.value = false;
 	suggestItems.value = data;
 }
 
