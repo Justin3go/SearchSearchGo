@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
     "vuetify"
-  ]
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

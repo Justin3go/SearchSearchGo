@@ -29,6 +29,5 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
-  },
-  devtools: { enabled: true }
+  }
 })
