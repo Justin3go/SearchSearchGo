@@ -8,14 +8,14 @@ dependencies:
   '@mdi/font':
     specifier: ^7.4.47
     version: 7.4.47
-  lodash:
-    specifier: ^4.17.21
-    version: 4.17.21
 
 devDependencies:
   '@types/lodash':
     specifier: ^4.14.202
     version: 4.14.202
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   nuxt:
     specifier: ^3.9.1
     version: 3.9.1(sass@1.69.7)(vite@5.0.11)
@@ -3731,6 +3731,7 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: true
 
   /lru-cache@10.1.0:
     resolution: {integrity: sha512-/1clY/ui8CzjKFyjdvwPWJUYKiFVXG2I2cY0ssG7h4+hwk+XOIX7ZSG9Q7TW8TW3Kp3BUSqgFWBLgL4PJ+Blag==}
