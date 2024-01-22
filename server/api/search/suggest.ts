@@ -1,12 +1,13 @@
+import { client } from "~/server/elasticsearch";
+
 interface ISuggestQuery {
   input: string;
 }
 
 export default defineEventHandler(async (event) => {
-  const { serverElasticsearchClient } = event.context;
   const { input }: ISuggestQuery = getQuery(event);
 
-  const esRes = await serverElasticsearchClient.search({
+  const esRes = await client.search({
     index: process.env.ES_INDEX,
     body: {
       suggest: {

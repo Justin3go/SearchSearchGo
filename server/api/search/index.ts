@@ -1,3 +1,5 @@
+import { client } from "~/server/elasticsearch";
+
 interface ISearchQuery {
   pageNo: number;
   pageSize: number;
@@ -5,10 +7,9 @@ interface ISearchQuery {
 }
 
 export default defineEventHandler(async (event) => {
-  const { serverElasticsearchClient } = event.context;
   const { pageNo = 1, pageSize = 10, query }: ISearchQuery = getQuery(event);
 
-  const esRes = await serverElasticsearchClient.search({
+  const esRes = await client.search({
     index: process.env.ES_INDEX,
     body: {
       from: (pageNo - 1) * pageSize, // 从哪里开始

@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     }
   },
   modules: [
-    'nuxt-elasticsearch',
     (_options, nuxt) => {
       nuxt.hooks.hook('vite:extendConfig', (config) => {
         // @ts-expect-error
@@ -19,17 +18,8 @@ export default defineNuxtConfig({
       })
     },
   ],
-  nuxtElasticsearch: {
-    clientOpts: {
-      node: process.env.ES_URL,
-      auth: {
-        username: process.env.ES_AUTH_USERNAME || '',
-        password: process.env.ES_AUTH_PASSWORD || '',
-      }
-    }
-  },
   build: {
-    transpile: ['vuetify', 'lodash'],
+    transpile: ['vuetify'],
   },
   vite: {
     vue: {
@@ -37,8 +27,5 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
-  },
-  nitro: {
-    minify: false
   }
 })
