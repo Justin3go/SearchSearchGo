@@ -4,11 +4,12 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "build:cf":"NITRO_PRESET=cloudflare && nuxt build",
+    "build:cf": "cross-env NITRO_PRESET=cloudflare nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "type-check": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.202",
@@ -17,6 +18,7 @@
     "nuxt-elasticsearch": "^1.0.2",
     "sass": "^1.69.7",
     "sass-loader": "^14.0.0",
+    "typescript": "^5.3.3",
     "vite-plugin-vuetify": "^2.0.1",
     "vue": "^3.4.10",
     "vue-gtag-next": "^1.14.0",
@@ -24,6 +26,7 @@
     "vuetify": "^3.4.10"
   },
   "dependencies": {
-    "@mdi/font": "^7.4.47"
+    "@mdi/font": "^7.4.47",
+    "cross-env": "^7.0.3"
   }
 }

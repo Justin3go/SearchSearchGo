@@ -37,5 +37,8 @@ export default defineNuxtConfig({
         transformAssetUrls,
       },
     },
+  },
+  nitro: {
+    minify: false
   }
 })
