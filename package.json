@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "@types/elasticsearch": "^5.0.43",
-    "@types/lodash": "^4.14.202",
     "nuxt": "^3.9.1",
     "sass": "^1.69.7",
     "sass-loader": "^14.0.0",
@@ -27,7 +26,6 @@
   "dependencies": {
     "@elastic/elasticsearch": "^7.17.13",
     "@mdi/font": "^7.4.47",
-    "cross-env": "^7.0.3",
-    "lodash": "^4.17.21"
+    "cross-env": "^7.0.3"
   }
 }

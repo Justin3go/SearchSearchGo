@@ -14,17 +14,11 @@ dependencies:
   cross-env:
     specifier: ^7.0.3
     version: 7.0.3
-  lodash:
-    specifier: ^4.17.21
-    version: 4.17.21
 
 devDependencies:
   '@types/elasticsearch':
     specifier: ^5.0.43
     version: 5.0.43
-  '@types/lodash':
-    specifier: ^4.14.202
-    version: 4.14.202
   nuxt:
     specifier: ^3.9.1
     version: 3.9.1(sass@1.69.7)(typescript@5.3.3)(vite@5.0.11)
@@ -1552,10 +1546,6 @@ packages:
 
   /@types/json-schema@7.0.15:
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
-    dev: true
-
-  /@types/lodash@4.14.202:
-    resolution: {integrity: sha512-OvlIYQK9tNneDlS0VN54LLd5uiPCBOp7gS5Z0f1mjoJYBrtStzgmJBxONW3U6OZqdtNzZPmn9BS/7WI7BFFcFQ==}
     dev: true
 
   /@types/node@20.11.3:
@@ -3749,6 +3739,7 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: true
 
   /lru-cache@10.1.0:
     resolution: {integrity: sha512-/1clY/ui8CzjKFyjdvwPWJUYKiFVXG2I2cY0ssG7h4+hwk+XOIX7ZSG9Q7TW8TW3Kp3BUSqgFWBLgL4PJ+Blag==}

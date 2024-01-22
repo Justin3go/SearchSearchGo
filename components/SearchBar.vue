@@ -10,7 +10,7 @@
 		no-data-text="暂无合适的搜索建议..."
 		:loading="isLoadingSuggest"
 		:items="suggestItems"
-		@keyup.enter="clickSearch" 
+		@keyup.enter="clickSearch"
 		@click:clear="clickClear"
 		@update:modelValue="inputChange"
 	>
@@ -28,8 +28,6 @@
 </template>
 
 <script lang="ts" setup>
-import { debounce } from "lodash";
-
 interface IProps {
 	input: string;
 }
@@ -54,16 +52,25 @@ async function inputChange() {
 		emit("clear");
 		return;
 	}
-	debounce(loadSuggest, 300)();
+	loadSuggest();
 }
 
+const timer = ref();
 async function loadSuggest() {
+	clearTimeout(timer.value);
 	isLoadingSuggest.value = true;
-	const data: string[] = await $fetch("/api/search/suggest", {
-		query: { input: input.value },
-	});
-	isLoadingSuggest.value = false;
-	suggestItems.value = data;
+	timer.value = setTimeout(async () => {
+		try {
+			const data: string[] = await $fetch("/api/search/suggest", {
+				query: { input: input.value },
+			});
+			isLoadingSuggest.value = false;
+			suggestItems.value = data;
+		} catch (e) {
+			isLoadingSuggest.value = false;
+			suggestItems.value = [];
+		}
+	}, 500);
 }
 
 const combobox = ref();
