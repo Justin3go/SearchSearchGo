@@ -17,6 +17,7 @@
     "sass-loader": "^14.0.0",
     "vite-plugin-vuetify": "^2.0.1",
     "vue": "^3.4.10",
+    "vue-gtag-next": "^1.14.0",
     "vue-router": "^4.2.5",
     "vuetify": "^3.4.10"
   },

@@ -34,6 +34,9 @@ devDependencies:
   vue:
     specifier: ^3.4.10
     version: 3.4.14
+  vue-gtag-next:
+    specifier: ^1.14.0
+    version: 1.14.0(vue@3.4.14)
   vue-router:
     specifier: ^4.2.5
     version: 4.2.5(vue@3.4.14)
@@ -6163,6 +6166,14 @@ packages:
 
   /vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
+    dev: true
+
+  /vue-gtag-next@1.14.0(vue@3.4.14):
+    resolution: {integrity: sha512-iJl+cOG2GU5NuxqzSSIpt03WVOvZqyKB9TOy7d55KiuvRklcnb2nlqxW5B/a3/sbIt7fla+XEkRyMCcoz0zAHw==}
+    peerDependencies:
+      vue: ^3.0.0-rc.11
+    dependencies:
+      vue: 3.4.14
     dev: true
 
   /vue-router@4.2.5(vue@3.4.14):

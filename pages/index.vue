@@ -32,7 +32,7 @@
 					></DataList>
 				</template>
 				<template #no-data>
-					<template v-if="!pending">
+					<template v-if="!curInput || !pending">
 						<v-slide-x-reverse-transition>
 							<BaseEmpty v-if="isInput"></BaseEmpty>
 						</v-slide-x-reverse-transition>
@@ -64,9 +64,9 @@ interface IResult {
 	total: number;
 }
 
-const curPage = ref(page as number);
+const curPage = ref(+(page || 1));
 
-const curInput = ref(query as string);
+const curInput = ref((query || '') as string);
 const isInput = computed(() => !!curInput.value);
 
 let { data, pending }: { data: Ref<IResult>, pending: Ref<boolean> } = await useFetch("/api/search", {
@@ -92,5 +92,6 @@ function pageChange(page: number) {
 function clear() {
 	curInput.value = "";
 	data.value = defaultData;
+	// 这里就不替换参数了，保留上一次的感觉好一些
 }
 </script>
