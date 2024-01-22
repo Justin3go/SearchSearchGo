@@ -2,6 +2,14 @@ import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'SearchSearchGo',
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/logo.png' }
+      ]
+    }
+  },
   modules: [
     'nuxt-elasticsearch',
     (_options, nuxt) => {
