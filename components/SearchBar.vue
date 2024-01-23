@@ -46,12 +46,21 @@ const emit = defineEmits<IEmits>();
 const input = ref(props.input); // 如果父组件传入了这个属性，则用其初始化input
 const suggestItems: Ref<string[]> = ref([]);
 const isLoadingSuggest = ref(false);
+// 这个组件没有对应的点击选择下拉项的的click事件
+const isSelectSuggest = computed(() => suggestItems.value.includes(input.value))
 
 async function inputChange() {
 	if (!input.value) {
 		emit("clear");
 		return;
 	}
+	// 如果是点击选择下拉项，则不再重新加载下拉项，并触发搜索
+	if(isSelectSuggest.value) {
+		suggestItems.value = [];
+		clickSearch()
+		return;
+	}
+
 	loadSuggest();
 }
 
@@ -70,7 +79,7 @@ async function loadSuggest() {
 			isLoadingSuggest.value = false;
 			suggestItems.value = [];
 		}
-	}, 500);
+	}, 300);
 }
 
 const combobox = ref();
@@ -83,6 +92,10 @@ function clickSearch() {
 function clickClear() {
 	suggestItems.value = [];
 	emit("clear");
+}
+
+function onEvent(e: string) {
+	console.log('e: ', e);
 }
 </script>
 
