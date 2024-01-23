@@ -21,15 +21,23 @@
 						</span>
 						<MainMenu></MainMenu>
 					</div>
-					<SearchBar :input="curInput" @search="search" @clear="clear"></SearchBar>
+					<SearchBar
+						:input="curInput"
+						@search="search"
+						@clear="clear"
+					></SearchBar>
 				</template>
 				<template #default="{ items }">
-					<DataList
-						:items="items"
-						:total="curTotal"
-						:page="curPage"
-						@page-change="pageChange"
-					></DataList>
+					<v-fade-transition>
+						<DataList
+							v-if="!pending"
+							:items="items"
+							:total="curTotal"
+							:page="curPage"
+							@page-change="pageChange"
+						></DataList>
+						<LoadingIndicator v-else></LoadingIndicator>
+					</v-fade-transition>
 				</template>
 				<template #no-data>
 					<template v-if="!curInput || !pending">
@@ -49,16 +57,16 @@
 <script lang="ts" setup>
 const route = useRoute();
 const { query = "", page = 1 } = route.query;
-const router = useRouter()
+const router = useRouter();
 const defaultData = { data: [], total: 0 };
 
-const descriptionPrefix =  query  ? `正在搜索“ ${query} ”... ，这是` : ''
+const descriptionPrefix = query ? `正在搜索“ ${query} ”... ，这是` : "";
 useSeoMeta({
-  ogTitle: 'SearchSearchGo--新一代阿里云盘搜索引擎',
-  ogDescription: `${descriptionPrefix}一款极简体验、优雅、现代化、资源丰富、免费、无需登录的新一代阿里云盘搜索引擎，来体验找寻资源的快乐吧~`,
-  ogImage: 'https://ssgo.app/logobg.png',
-  twitterCard: 'summary',
-})
+	ogTitle: "SearchSearchGo--新一代阿里云盘搜索引擎",
+	ogDescription: `${descriptionPrefix}一款极简体验、优雅、现代化、资源丰富、免费、无需登录的新一代阿里云盘搜索引擎，来体验找寻资源的快乐吧~`,
+	ogImage: "https://ssgo.app/logobg.png",
+	twitterCard: "summary",
+});
 
 interface IResultItem {
 	title: string;
@@ -74,13 +82,14 @@ interface IResult {
 
 const curPage = ref(+(page || 1));
 
-const curInput = ref((query || '') as string);
+const curInput = ref((query || "") as string);
 const isInput = computed(() => !!curInput.value);
 
-let { data, pending }: { data: Ref<IResult>, pending: Ref<boolean> } = await useFetch("/api/search", {
-	query: { query: curInput, pageNo: curPage, pageSize: 10 },
-	immediate: !!query,
-});
+let { data, pending }: { data: Ref<IResult>; pending: Ref<boolean> } =
+	await useFetch("/api/search", {
+		query: { query: curInput, pageNo: curPage, pageSize: 10 },
+		immediate: !!query,
+	});
 data.value = data.value || defaultData;
 
 const curItems = computed(() => data.value.data);
@@ -89,12 +98,12 @@ const curTotal = computed(() => data.value.total);
 function search(input: string) {
 	curPage.value = 1;
 	curInput.value = input;
-	router.replace({ query: { ...route.query, query: input, page: 1 } })
+	router.replace({ query: { ...route.query, query: input, page: 1 } });
 }
 
 function pageChange(page: number) {
 	curPage.value = page;
-	router.replace({ query: { ...route.query, page: page } })
+	router.replace({ query: { ...route.query, page: page } });
 }
 
 function clear() {
