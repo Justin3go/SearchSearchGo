@@ -52,6 +52,14 @@ const { query = "", page = 1 } = route.query;
 const router = useRouter()
 const defaultData = { data: [], total: 0 };
 
+const descriptionPrefix =  query  ? `正在搜索${query}... ，这是` : ''
+useSeoMeta({
+  ogTitle: 'SearchSearchGo--新一代阿里云盘搜索引擎',
+  ogDescription: `${descriptionPrefix}一款极简体验、优雅、现代化、资源丰富、免费、无需登录的新一代阿里云盘搜索引擎，来体验找寻资源的快乐吧~`,
+  ogImage: 'https://ssgo.app/logobg.png',
+  twitterCard: 'summary',
+})
+
 interface IResultItem {
 	title: string;
 	pan_url: string;
