@@ -70,6 +70,15 @@ const menuItems = ref([
 				"_blank"
 			),
 	},
+	{
+		title: "回到旧版",
+		icon: "mdi-account-arrow-right-outline",
+		clickFn: () =>
+			window.open(
+				"https://pan.justin3go.com",
+				"_blank"
+			),
+	},
 ]);
 </script>
 
