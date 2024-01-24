@@ -2,12 +2,12 @@
 	<div ref="scrollContainer" class="list-container">
 		<template v-for="(item, i) in props.items" :key="i">
 			<v-card
-				class="mx-1 my-1 py-2 card"
+				class="mx-1 my-1 py-1 card"
 				:href="panUrls[i]"
 				target="_blank"
 				append-icon="mdi-open-in-new"
 			>
-				<template v-slot:title>
+				<template #title>
 					<span v-html="item.raw.highlight"></span>
 				</template>
 				<v-card-actions>
@@ -45,6 +45,11 @@
 						复制成功
 					</v-snackbar>
 				</v-card-actions>
+				<template #subtitle>
+					<v-chip size="x-small" color="primary" label>
+						{{ item.raw.extract_code ? "需提取码" : "无提取码" }}
+					</v-chip>
+				</template>
 			</v-card>
 		</template>
 		<v-pagination
@@ -115,7 +120,7 @@ function scrollToTop() {
 	scrollContainer.value.scrollTo({
 		top: 0,
 		// behavior: "smooth",
-	})
+	});
 }
 </script>
 
