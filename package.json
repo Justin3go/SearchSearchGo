@@ -26,6 +26,8 @@
   "dependencies": {
     "@elastic/elasticsearch": "^7.17.13",
     "@mdi/font": "^7.4.47",
-    "cross-env": "^7.0.3"
+    "@types/lodash-es": "^4.17.12",
+    "cross-env": "^7.0.3",
+    "lodash-es": "^4.17.21"
   }
 }

@@ -28,6 +28,8 @@
 </template>
 
 <script lang="ts" setup>
+import debounce from "lodash-es/debounce";
+
 interface IProps {
 	input: string;
 }
@@ -47,7 +49,9 @@ const input = ref(props.input); // 如果父组件传入了这个属性，则用
 const suggestItems: Ref<string[]> = ref([]);
 const isLoadingSuggest = ref(false);
 // 这个组件没有对应的点击选择下拉项的的click事件
-const isSelectSuggest = computed(() => suggestItems.value.includes(input.value))
+const isSelectSuggest = computed(() =>
+	suggestItems.value.includes(input.value)
+);
 
 async function inputChange() {
 	if (!input.value) {
@@ -55,32 +59,29 @@ async function inputChange() {
 		return;
 	}
 	// 如果是点击选择下拉项，则不再重新加载下拉项，并触发搜索
-	if(isSelectSuggest.value) {
+	if (isSelectSuggest.value) {
 		suggestItems.value = [];
-		clickSearch()
+		clickSearch();
 		return;
 	}
 
-	loadSuggest();
+	debounceLoadSuggestFn();
 }
 
-const timer = ref();
 async function loadSuggest() {
-	clearTimeout(timer.value);
 	isLoadingSuggest.value = true;
-	timer.value = setTimeout(async () => {
-		try {
-			const data: string[] = await $fetch("/api/search/suggest", {
-				query: { input: input.value },
-			});
-			isLoadingSuggest.value = false;
-			suggestItems.value = data;
-		} catch (e) {
-			isLoadingSuggest.value = false;
-			suggestItems.value = [];
-		}
-	}, 300);
+	try {
+		const data: string[] = await $fetch("/api/search/suggest", {
+			query: { input: input.value },
+		});
+		suggestItems.value = data;
+	} catch (e) {
+		suggestItems.value = [];
+	} finally {
+		isLoadingSuggest.value = false;
+	}
 }
+const debounceLoadSuggestFn = debounce(loadSuggest, 300);
 
 const combobox = ref();
 function clickSearch() {
@@ -92,10 +93,6 @@ function clickSearch() {
 function clickClear() {
 	suggestItems.value = [];
 	emit("clear");
-}
-
-function onEvent(e: string) {
-	console.log('e: ', e);
 }
 </script>
 
