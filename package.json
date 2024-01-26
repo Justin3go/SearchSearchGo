@@ -1,0 +1,33 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "build:cf": "cross-env NITRO_PRESET=cloudflare nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/elasticsearch": "^5.0.43",
+    "nuxt": "^3.9.1",
+    "sass": "^1.69.7",
+    "sass-loader": "^14.0.0",
+    "typescript": "^5.3.3",
+    "vite-plugin-vuetify": "^2.0.1",
+    "vue": "^3.4.10",
+    "vue-gtag-next": "^1.14.0",
+    "vue-router": "^4.2.5",
+    "vuetify": "^3.4.10"
+  },
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.17.13",
+    "@mdi/font": "^7.4.47",
+    "@types/lodash-es": "^4.17.12",
+    "cross-env": "^7.0.3",
+    "lodash-es": "^4.17.21"
+  }
+}
