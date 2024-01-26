@@ -1,24 +1,24 @@
 <p align="center">
-  <a href="https://justin3go.com" target="blank">
+  <a href="https://ssgo.app" target="blank">
     <img src="https://ssgo.app/logobg.png" height="200px" alt="logo" style="border-radius: 20px"/>
     <h1 align="center"> SearchSearchGo-APP</h1>
   </a>
 </p>
 
 <p align="center">
-  <a href="">
+  <a href="https://nuxt.com/">
     <img src="https://img.shields.io/badge/Nuxt3-00C58E?style=for-the-badge&logo=nuxt.js&logoColor=white" alt="">
   </a>
-  <a href="">
+  <a href="https://vuetifyjs.com/">
     <img src="https://img.shields.io/badge/Vuetify-1867C0?style=for-the-badge&logo=vuetify&logoColor=white" alt="">
   </a>
-  <a href="">
+  <a href="https://www.typescriptlang.org/">
     <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="">
   </a>
-  <a href="">
+  <a href="https://www.elastic.co/">
     <img src="https://img.shields.io/badge/ElasticSearch-7-06B8D7?style=for-the-badge&logo=elasticsearch&logoColor=white" alt="">
   </a>
-  <a href="">
+  <a href="https://opensource.org/license/mit/">
     <img src="https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge" alt="">
   </a>
 </p>
