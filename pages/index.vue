@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="d-flex justify-center bg-grey-lighten-5 overflow-hidden overflow-y-hidden"
+		class="d-flex justify-center overflow-hidden overflow-y-hidden"
 	>
 		<v-sheet
 			class="px-md-16 px-2 pt-4"
