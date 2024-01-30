@@ -56,7 +56,7 @@
 <script lang="ts" setup>
 import { useTheme } from 'vuetify'
 const theme = useTheme()
-const themeCookie = useCookie('theme')
+const themeCookie = useCookie('theme', { expires: new Date('9999-12-31') })
 
 function toggleTheme () {
 	const lightOrDark = theme.global.current.value.dark ? 'light' : 'dark'
