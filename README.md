@@ -20,11 +20,14 @@
 
 [![PR Welcome](https://img.shields.io/badge/PR-Welcome-EA4AAA?style=for-the-badge&logo=git&logoColor=white)](https://github.com/Justin3go/SearchSearchGo/pulls)
 [![Request-Feature](https://img.shields.io/badge/Request-Feature-007BFF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Justin3go/SearchSearchGo/issues/new/choose)
-[![BUG-Report](https://img.shields.io/badge/BUG-Report-FF4D52?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Justin3go/SearchSearchGo/issues/new/choose)
+[![Report-Bug](https://img.shields.io/badge/Report-Bug-red?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Justin3go/SearchSearchGo/issues/new/choose)
 
 ![PCMoblie-demo](./images/PCMoblie-demo.png)
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2FJustin3go%2FSearchSearchGo&env=ES_URL,ES_INDEX,ES_AUTH_USERNAME,ES_AUTH_PASSWORD)
+
 </div>
+
 
 ## 功能特性
 
@@ -36,13 +39,15 @@
 
 ![SSR-demo](./images/SSR-demo.png)
 
+![SEO-demo](./images/SEO-demo.png)
+
 `二、` **该应用支持深色模式**
 
 ![darkMode-demo](./images/darkMode-demo.png)
 
 `三、` **对于使用ElasticSearch7的用户，几乎是开箱即用**
 
-详见[开发指南](./docs/devGuide.md)
+[![开发指南](https://img.shields.io/badge/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97-%E2%86%92-blue?style=for-the-badge&logo=read-the-docs&logoColor=white)](./docs/devGuide.md)
 
 ## 开发简介
 
@@ -64,6 +69,8 @@ pnpm dev
 |ES_AUTH_PASSWORD|否|ElasticSearch的密码|changeme|
 
 除此之外，如果你需要导入自己的Analytics，请修改`plugins/XXXAnalytics.ts`中的id为你自己的id
+
+[![开发指南](https://img.shields.io/badge/%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97-%E2%86%92-blue?style=for-the-badge&logo=read-the-docs&logoColor=white)](./docs/devGuide.md)
 
 **重要**:
 
