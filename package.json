@@ -4,7 +4,12 @@
   "description": "一款极简体验、优雅、现代化、资源丰富、免费、无需登录的新一代阿里云盘搜索引擎，来体验找寻资源的快乐吧~",
   "license": "MIT",
   "author": "Justin3go",
-  "keywords": ["nuxt", "typescript", "vuetify", "elasticsearch"],
+  "keywords": [
+    "nuxt",
+    "typescript",
+    "vuetify",
+    "elasticsearch"
+  ],
   "type": "module",
   "scripts": {
     "build": "nuxt build",
@@ -16,6 +21,7 @@
   },
   "devDependencies": {
     "@types/elasticsearch": "^5.0.43",
+    "@vite-pwa/nuxt": "^0.4.0",
     "nuxt": "^3.9.1",
     "sass": "^1.69.7",
     "sass-loader": "^14.0.0",
