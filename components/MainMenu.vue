@@ -56,9 +56,12 @@
 <script lang="ts" setup>
 import { useTheme } from 'vuetify'
 const theme = useTheme()
+const themeCookie = useCookie('theme')
 
 function toggleTheme () {
-  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+	const lightOrDark = theme.global.current.value.dark ? 'light' : 'dark'
+  theme.global.name.value = lightOrDark
+	themeCookie.value = lightOrDark
 }
 
 const isDialogShow = ref(false);

@@ -5,8 +5,11 @@ import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 
 export default defineNuxtPlugin((app) => {
+  const themeCookie = useCookie('theme')
   const vuetify = createVuetify({
-    // ... your configuration
+    theme: {
+      defaultTheme: themeCookie.value || 'light',
+    }
   })
   app.vueApp.use(vuetify)
 })
