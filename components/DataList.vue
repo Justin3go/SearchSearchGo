@@ -136,7 +136,6 @@ function scrollToTop() {
 </style>
 <style>
 .highlight {
-	background-color: #eceff1;
-	font-weight: bold;
+	background-color: rgba(var(--v-theme-primary), 0.2);
 }
 </style>

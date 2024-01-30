@@ -54,6 +54,13 @@
 </template>
 
 <script lang="ts" setup>
+import { useTheme } from 'vuetify'
+const theme = useTheme()
+
+function toggleTheme () {
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+}
+
 const isDialogShow = ref(false);
 const menuItems = ref([
 	{
@@ -62,22 +69,20 @@ const menuItems = ref([
 		clickFn: () => (isDialogShow.value = true),
 	},
 	{
+		title: "深浅切换",
+		icon: "mdi-theme-light-dark",
+		clickFn: toggleTheme,
+	},
+	{
 		title: "意见反馈",
 		icon: "mdi-github",
 		clickFn: () =>
-			window.open(
-				"https://github.com/Justin3go/SearchSearchGo",
-				"_blank"
-			),
+			window.open("https://github.com/Justin3go/SearchSearchGo", "_blank"),
 	},
 	{
 		title: "回到旧版",
 		icon: "mdi-account-arrow-right-outline",
-		clickFn: () =>
-			window.open(
-				"https://pan.justin3go.com",
-				"_blank"
-			),
+		clickFn: () => window.open("https://pan.justin3go.com", "_blank"),
 	},
 ]);
 </script>
