@@ -92,18 +92,18 @@ const menuItems = ref([
 
 <style lang="scss" scoped>
 a:link {
-	color: #78909c;
+	color: rgba(var(--v-theme-primary), 0.6)
 }
 
 a:visited {
-	color: #263238;
+	color: rgba(var(--v-theme-primary), 0.4)
 }
 
 a:hover {
-	color: #455a64;
+	color: rgba(var(--v-theme-primary), 0.8)
 }
 
 a:active {
-	color: B0BEC5;
+	color: rgba(var(--v-theme-primary), 1)
 }
 </style>
