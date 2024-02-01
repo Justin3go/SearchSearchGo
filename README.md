@@ -24,7 +24,9 @@
 
 ![PCMoblie-demo](./images/PCMoblie-demo.png)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2FJustin3go%2FSearchSearchGo&env=ES_URL,ES_INDEX,ES_AUTH_USERNAME,ES_AUTH_PASSWORD)
+|使用vercel部署|使用docker构建|
+|-|-|
+|[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2FJustin3go%2FSearchSearchGo&env=ES_URL,ES_INDEX,ES_AUTH_USERNAME,ES_AUTH_PASSWORD) | [![Docker-部署](https://img.shields.io/badge/Docker-部署→-2496ED?style=for-the-badge&logo=docker&logoColor=white&link=https://www.docker.com)](./docs/docker.md) |
 
 </div>
 
