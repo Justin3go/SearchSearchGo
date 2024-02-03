@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/Justin3go/SearchSearchGo/compare/v1.0.1...v1.0.2) (2024-02-03)
+
+
+### Docs
+
+* add changelog ([ddb8b66](https://github.com/Justin3go/SearchSearchGo/commit/ddb8b66ef646b67fe86cb54d283695caf80b5dbb))
+
 ## [1.0.1](https://github.com/Justin3go/SearchSearchGo/compare/v1.0.0...v1.0.1) (2024-02-03)
 
 
