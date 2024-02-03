@@ -15,7 +15,7 @@
 
 一款极简体验、优雅、现代化、资源丰富、免费、无需登录的新一代阿里云盘搜索引擎，来体验找寻资源的快乐吧~
 
-每周六/周末如有更新release一次，版本发布分支为`release`，欢迎大家star、watch关注最新动态。
+每周六/周末如有更新release一次到`master`，预发布分支为`pre-release`，欢迎大家star、watch关注最新动态。
 
 
 [![PR Welcome](https://img.shields.io/badge/PR-Welcome-EA4AAA?style=for-the-badge&logo=git&logoColor=white)](https://github.com/Justin3go/SearchSearchGo/pulls)

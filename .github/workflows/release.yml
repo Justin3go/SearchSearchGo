@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - release
+      - master
 
 name: Release
 
