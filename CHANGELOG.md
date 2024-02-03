@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/Justin3go/SearchSearchGo/compare/v1.0.0...v1.0.1) (2024-02-03)
+
+
+### CI
+
+* update release branch to master ([e54140b](https://github.com/Justin3go/SearchSearchGo/commit/e54140bc0d7963a2b0b5266d7f1a7643b39b8e7a))
+
 ## 1.0.0 (2024-02-03)
 
 
