@@ -1,0 +1,26 @@
+# 忽略 node_modules 目录
+node_modules
+
+# 忽略 .nuxt 目录
+.nuxt
+
+# 忽略日志文件
+*.log
+
+# 忽略操作系统生成的文件
+.DS_Store
+Thumbs.db
+
+# 忽略编辑器生成的文件
+.vscode
+.idea
+*.swp
+*.swo
+
+# 忽略 git 相关文件
+.git
+.gitignore
+
+# 忽略测试和 CI 相关文件
+tests/
+.travis.yml

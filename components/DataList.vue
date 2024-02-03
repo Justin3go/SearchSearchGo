@@ -46,7 +46,11 @@
 					</v-snackbar>
 				</v-card-actions>
 				<template #subtitle>
-					<v-chip size="x-small" color="primary" label>
+					<v-chip
+						size="x-small"
+						:color="item.raw.extract_code ? 'warning' : 'primary'"
+						label
+					>
 						{{ item.raw.extract_code ? "需提取码" : "无提取码" }}
 					</v-chip>
 				</template>
