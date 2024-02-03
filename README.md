@@ -17,6 +17,8 @@
 
 每周六/周末如有更新release一次到`master`，预发布分支为`pre-release`，欢迎大家star、watch关注最新动态。
 
+[![changelog](https://img.shields.io/badge/changelog-→-0052CC?style=for-the-badge&logo=ReSharper&logoColor=white)](./CHANGELOG.md)
+
 
 [![PR Welcome](https://img.shields.io/badge/PR-Welcome-EA4AAA?style=for-the-badge&logo=git&logoColor=white)](https://github.com/Justin3go/SearchSearchGo/pulls)
 [![Request-Feature](https://img.shields.io/badge/Request-Feature-007BFF?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Justin3go/SearchSearchGo/issues/new/choose)
