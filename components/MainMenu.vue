@@ -81,12 +81,7 @@ const menuItems = ref([
 		icon: "mdi-github",
 		clickFn: () =>
 			window.open("https://github.com/Justin3go/SearchSearchGo", "_blank"),
-	},
-	{
-		title: "回到旧版",
-		icon: "mdi-account-arrow-right-outline",
-		clickFn: () => window.open("https://pan.justin3go.com", "_blank"),
-	},
+	}
 ]);
 </script>
 
