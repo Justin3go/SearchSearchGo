@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.2](https://github.com/Justin3go/SearchSearchGo/compare/v1.0.1...v1.0.2) (2024-02-22)
+
+
+### Bug Fixes
+
+* remove dead link ([cec8385](https://github.com/Justin3go/SearchSearchGo/commit/cec8385a1b0388a1ebae06e251c129a9f02f7fad))
+
+
+### Docs
+
+* add changelog ([ddb8b66](https://github.com/Justin3go/SearchSearchGo/commit/ddb8b66ef646b67fe86cb54d283695caf80b5dbb))
+
 ## [1.0.1](https://github.com/Justin3go/SearchSearchGo/compare/v1.0.0...v1.0.1) (2024-02-03)
 
 
