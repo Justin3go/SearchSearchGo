@@ -14,7 +14,7 @@
 				<template #header>
 					<div class="pb-4 d-flex justify-space-between">
 						<span
-							class="text-h4 font-italic font-weight-thin d-flex align-center"
+							class="text-sm-h4 text-h5 font-italic font-weight-thin d-flex align-center"
 						>
 							<RunSvg style="height: 40px; width: 40px"></RunSvg>
 							<span>Search Search Go...</span>
