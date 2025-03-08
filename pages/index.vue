@@ -51,6 +51,7 @@
 				</template>
 			</v-data-iterator>
 		</v-sheet>
+		<base-auth></base-auth>
 	</div>
 </template>
 
