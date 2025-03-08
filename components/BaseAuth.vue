@@ -15,7 +15,7 @@
           ></v-text-field>
           
           <div class="text-center my-4">
-            <p>可扫码获取验证码（扫码->验证码->SSGO）</p>
+            <p>可扫码获取（扫码->验证码->SSGO）</p>
             <div class="qrcode-container">
               <img src="/qrcode.jpg" alt="扫码获取验证码" class="qrcode-image" />
             </div>
