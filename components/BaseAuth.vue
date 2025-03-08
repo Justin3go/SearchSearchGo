@@ -16,7 +16,9 @@
           
           <div class="text-center my-4">
             <p>可扫码获取验证码（扫码->验证码->SSGO）</p>
-            <img src="/qrcode.jpg" alt="扫码获取验证码" class="qrcode-image" />
+            <div class="qrcode-container">
+              <img src="/qrcode.jpg" alt="扫码获取验证码" class="qrcode-image" />
+            </div>
           </div>
         </v-card-text>
 
@@ -90,7 +92,17 @@ onMounted(() => {
 <style>
 .qrcode-image {
   max-width: 200px;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
   margin: 0 auto;
   display: block;
+}
+
+.qrcode-container {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 </style>
