@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/Justin3go/SearchSearchGo/compare/v1.0.2...v1.1.0) (2025-03-20)
+
+
+### Features
+
+* 优化二维码展示样式，增加容器和尺寸设置 ([7009d1c](https://github.com/Justin3go/SearchSearchGo/commit/7009d1ce1eb99e83b8e015ce77f4d83de792d6e1))
+* 修改二维码获取提示文本，简化说明 ([34452ba](https://github.com/Justin3go/SearchSearchGo/commit/34452ba2ee1d719bceefc693005813ac0efc00ff))
+* 更新二维码获取提示文本，明确操作步骤 ([472adbd](https://github.com/Justin3go/SearchSearchGo/commit/472adbdfa15770681c4d7b56a4dec96056846b63))
+* 更新空状态提示文本和链接，指向新站点 ([57d7295](https://github.com/Justin3go/SearchSearchGo/commit/57d729576cce1080886da2e6c7be73d6f81d418d))
+* 添加访问验证组件及API支持 ([0564b2c](https://github.com/Justin3go/SearchSearchGo/commit/0564b2c80f49d00027bfddaef0efd8452c852e8b))
+* 调整搜索框标题样式，优化字体大小 ([44b8b76](https://github.com/Justin3go/SearchSearchGo/commit/44b8b76c1ab7e05b483359939f5b61c9348091d2))
+
 ## [1.0.2](https://github.com/Justin3go/SearchSearchGo/compare/v1.0.1...v1.0.2) (2024-02-22)
 
 
