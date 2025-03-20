@@ -3,9 +3,11 @@
 		<v-card
 			class="empty-card"
 			title="暂无相关数据"
-			text="你可以试试更简短的关键词或者使用相似的词语..."
+			text="新站上线：面向自媒体/内容创作者的最流行的工具及资源导航站～"
 			min-width="200"
 			variant="outlined"
+			href="https://turbo0.com"
+			target="_blank"
 		></v-card>
 		<svg
 			width="1080"

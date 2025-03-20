@@ -99,10 +99,13 @@
 		<v-card
 			class="empty-card"
 			title="请先输入搜索"
-			text="欢迎体验新一代阿里云盘搜索引擎，感受找寻资源的快乐..."
+			text="新站上线：面向自媒体/内容创作者的最流行的工具及资源导航站～"
 			min-width="200"
 			variant="outlined"
-		></v-card>
+			href="https://turbo0.com"
+			target="_blank"
+		>
+		</v-card>
 	</div>
 </template>
 
